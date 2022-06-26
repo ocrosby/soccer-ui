@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  angular-docker:
+    container_name: soccer-ui
+    build: .
+    ports:
+      - '8080:80'
+
+  soccer-api:
+    container_name: soccer-api
+    build: ../soccer-api
+    ports:
+      - '8081:5000'
