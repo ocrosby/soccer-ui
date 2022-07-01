@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'soccer-ui';
+  title = 'Soccer UI';
+  public isAuthenticated = false;
+
+  public logout(): void {
+    // todo
+  }
 }

@@ -34,3 +34,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 > docker build -t soccer-ui .
 > docker run -it --rm -p 9000:80 soccer-ui
 ```
+
+
+## References
+
+* [Material Tutorial](https://auth0.com/blog/creating-beautiful-apps-with-angular-material/)
