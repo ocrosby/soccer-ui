@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --open",
     "build": "ng build",
+    "build:prod": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "docker:build": "docker build -t soccer-ui .",
-    "docker:run": "docker run -it --rm -p 8080:80 soccer-ui"
+    "docker:build": "docker build -t ocrosby/soccer-ui .",
+    "docker:run": "docker run -it --rm -p 8080:80 ocrosby/soccer-ui"
   },
   "private": true,
   "dependencies": {

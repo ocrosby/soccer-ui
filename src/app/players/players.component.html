@@ -1,0 +1,79 @@
+<h1>Player Search</h1>
+<div class="example-container">
+    <!--
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+        <mat-label>Enter some input</mat-label>
+        <input matInput #input maxlength="10" placeholder="Ex. Nougat">
+        <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+    </mat-form-field>
+    -->
+
+    <mat-form-field appearance="fill">
+        <mat-label>Position</mat-label>
+        <mat-select>
+            <mat-option value="All">All</mat-option>
+            <mat-option value="Goalkeeper">Goalkeeper</mat-option>
+            <mat-option value="Defender">Defender</mat-option>
+            <mat-option value="Midfielder">Midfielder</mat-option>
+            <mat-option value="Forward">Forward</mat-option>
+        </mat-select>
+        <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Graduation Year</mat-label>
+        <mat-select>
+            <mat-option value="All">All</mat-option>
+            <mat-option value="2023">2023</mat-option>
+            <mat-option value="2024">2024</mat-option>
+            <mat-option value="2025">2025</mat-option>
+            <mat-option value="2026">2026</mat-option>
+        </mat-select>
+        <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Region</mat-label>
+        <mat-select>
+            <mat-option value="All">All</mat-option>
+            <mat-option value="Florida">Florida</mat-option>
+            <mat-option value="Great Lakes">Great Lakes</mat-option>
+            <mat-option value="Heartland">Heartland</mat-option>
+            <mat-option value="International">International</mat-option>
+            <mat-option value="Mid Atlantic">Mid Atlantic</mat-option>
+            <mat-option value="Midwest">Midwest</mat-option>
+            <mat-option value="New Jersey">New Jersey</mat-option>
+            <mat-option value="New York">New York</mat-option>
+            <mat-option value="Northeast">Northeast</mat-option>
+            <mat-option value="Northern California & Hawaii">Northern California & Hawaii</mat-option>
+            <mat-option value="Pacific Northwest">Pacific Northwest</mat-option>
+            <mat-option value="Pennsylvania">Pennsylvania</mat-option>
+            <mat-option value="Rocky Mountains & Southwest">Rocky Mountains & Southwest</mat-option>
+            <mat-option value="South">South</mat-option>
+            <mat-option value="South Atlantic">South Atlantic</mat-option>
+            <mat-option value="Southern California">Southern California</mat-option>
+            <mat-option value="Texas">Texas</mat-option>
+        </mat-select>
+        <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>State</mat-label>
+        <mat-select>
+            <mat-option value="North Carolina">North Carolina</mat-option>
+            <mat-option value="Georgia">Georgia</mat-option>
+        </mat-select>
+        <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <mat-select>
+            <mat-option value="all">All</mat-option>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+        </mat-select>
+        <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+    </mat-form-field>
+
+</div>
