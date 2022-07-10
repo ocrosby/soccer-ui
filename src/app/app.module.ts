@@ -17,9 +17,10 @@ import { ConfigComponent } from './config/config.component';
 import { HomeComponent } from './home/home.component';
 import { EcnlClubsComponent } from './ecnl-clubs/ecnl-clubs.component';
 import { GaClubsComponent } from './ga-clubs/ga-clubs.component';
+import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 
 @NgModule({
-    declarations: [AppComponent, PlayersComponent, MessagesComponent, ConfigComponent, HomeComponent, EcnlClubsComponent, GaClubsComponent],
+    declarations: [AppComponent, PlayersComponent, MessagesComponent, ConfigComponent, HomeComponent, EcnlClubsComponent, GaClubsComponent, SpinnerOverlayComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,

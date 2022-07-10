@@ -1,25 +1,30 @@
 <h1>Girls Academy Clubs [ {{clubs.length}} ]</h1>
 
-<table mat-table [dataSource]="clubs" class="mat-elevation-z8">
+<div *ngIf="overlay">
+    <app-spinner-overlay [overlay]="overlay">
+    </app-spinner-overlay>
+</div>
+
+<table mat-table matSort [dataSource]="clubs" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
         <td mat-cell *matCellDef="let element"> <a href="{{element.url}}">{{element.name}}</a> </td>
     </ng-container>
 
     <!-- State Column -->
     <ng-container matColumnDef="state">
-        <th mat-header-cell *matHeaderCellDef> State </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
         <td mat-cell *matCellDef="let element"> {{element.state}} </td>
     </ng-container>
 
     <!-- Conference Column -->
     <ng-container matColumnDef="conference">
-        <th mat-header-cell *matHeaderCellDef> Conference </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Conference </th>
         <td mat-cell *matCellDef="let element"> {{element.conference}} </td>
     </ng-container>
 

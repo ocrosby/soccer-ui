@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { GAClub } from '../club';
 import { GaService } from '../ga.service';
 
@@ -9,6 +11,10 @@ import { GaService } from '../ga.service';
 })
 export class GaClubsComponent implements OnInit {
     clubs: GAClub[] = [];
+    color: ThemePalette = 'primary';
+    mode: ProgressSpinnerMode = 'indeterminate';
+    value = 50;
+    overlay = true;
 
     displayedColumns: string[] = ['name', 'state', 'conference'];
 
@@ -16,8 +22,8 @@ export class GaClubsComponent implements OnInit {
 
     ngOnInit(): void {
         this.gaService.getClubs().subscribe((data: any[]) => {
-            console.log(data);
             this.clubs = data;
+            this.overlay=false;
         });
     }
 }
