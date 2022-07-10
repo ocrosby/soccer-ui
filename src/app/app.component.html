@@ -81,6 +81,35 @@
                     <span class="mat-list-text"></span> ECNL Players
                 </span>
             </a>
+
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      NCAA
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      <!-- This is a summary of the content -->
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <p>
+                    <mat-nav-list role="navigation" class="mat-nav-list mat-list-base ng-tns-c142-2">
+                        <a mat-list-item="" routerLink="/ncaa/ranking/rpi" class="mat-list-item mat-focus-indicator ng-tns-c142-2 ng-star-inserted" aria-current="false" href="/components/autocomplete">
+                            <span class="mat-list-item-content">
+                                <span mat-ripple="" class="mat-ripple mat-list-item-ripple"></span>
+                                <span class="mat-list-text"></span> RPI Ranking
+                            </span>
+                        </a>
+                        <a mat-list-item="" routerLink="/ncaa/ranking/usc" class="mat-list-item mat-focus-indicator ng-tns-c142-2 ng-star-inserted" aria-current="false" href="/components/badge">
+                            <span class="mat-list-item-content">
+                                <span mat-ripple="" class="mat-ripple mat-list-item-ripple"></span>
+                                <span class="mat-list-text"></span> United Soccer Coaches Ranking
+                            </span>
+                        </a>
+                    </mat-nav-list>
+                  </p>
+                </mat-expansion-panel>
+              </mat-accordion>
         </mat-nav-list>
     </mat-drawer>
     <mat-drawer-content fxFlex="70">

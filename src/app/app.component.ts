@@ -9,6 +9,8 @@ export class AppComponent {
   title = 'Soccer UI';
   public isAuthenticated = false;
 
+  panelOpenState = false;
+
   public logout(): void {
     // todo
   }

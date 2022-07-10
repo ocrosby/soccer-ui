@@ -1,0 +1,51 @@
+<h1>NCAA DI RPI Rankings</h1>
+
+<div *ngIf="overlay">
+    <app-spinner-overlay [overlay]="overlay">
+    </app-spinner-overlay>
+</div>
+
+<table mat-table matSort [dataSource]="rankings" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Rank Column -->
+    <ng-container matColumnDef="rank">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Rank </th>
+        <td mat-cell *matCellDef="let element"> {{element.rank}} </td>
+    </ng-container>
+
+    <!-- School Column -->
+    <ng-container matColumnDef="school">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> School </th>
+        <td mat-cell *matCellDef="let element"> {{element.school}} </td>
+    </ng-container>
+
+    <!-- Conference Column -->
+    <ng-container matColumnDef="conference">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Conference </th>
+        <td mat-cell *matCellDef="let element"> {{element.conference}} </td>
+    </ng-container>
+
+    <!-- Record Column -->
+    <ng-container matColumnDef="record">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Record </th>
+        <td mat-cell *matCellDef="let element"> {{element.record}} </td>
+    </ng-container>
+
+    <!-- Neutral Column -->
+    <ng-container matColumnDef="neutral">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Neutral </th>
+        <td mat-cell *matCellDef="let element"> {{element.neutral}} </td>
+    </ng-container>
+
+    <!-- Non-Div-1 Column -->
+    <ng-container matColumnDef="non-div-1">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Non-DI </th>
+        <td mat-cell *matCellDef="let element"> {{element["non-div-i"]}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
