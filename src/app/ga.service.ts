@@ -1,18 +1,18 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError } from 'rxjs';
-import { ECNLClub } from './club';
+import { GAClub } from './club';
 
 @Injectable({
     providedIn: 'root',
 })
-export class EcnlService {
+export class GaService {
     private api = "https://soccer-api.happyocean-04c34fb4.eastus2.azurecontainerapps.io/api";
 
     constructor(private http: HttpClient) {}
 
     getClubs(): Observable<any> {
-        return this.http.get<ECNLClub[]>(this.api + "/ecnl/clubs")
+        return this.http.get<GAClub[]>(this.api + "/ga/clubs")
             .pipe(
                 retry(1),
                 catchError(this.handleError)
