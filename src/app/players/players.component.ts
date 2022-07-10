@@ -10,12 +10,30 @@ import { TdsService } from '../tds.service';
     styleUrls: ['./players.component.scss'],
 })
 export class PlayersComponent implements OnInit {
-    private players!: Observable<Player[]>;
+    players: Player[] = [];
+
+    selectedPosition: string;
+    selectedGradYear: string;
+    selectedRegion: string;
+    selectedState: string;
+    selectedGender: string
+
+    displayedColumns: string[] = ['name', 'position', 'club', 'highSchool', 'rating', 'year', 'state', 'commitment'];
 
     constructor(private tdsService: TdsService, private messageService: MessageService) {
+        this.selectedPosition = "All";
+        this.selectedGradYear = "2023";
+        this.selectedRegion = "All";
+        this.selectedState = "GA";
+        this.selectedGender = "female";
     }
 
     ngOnInit(): void {
-        this.players = this.tdsService.getPlayers('', '2023', '', 'Georgia', 'Female');
+    }
+
+    onSearch(): void {
+        this.tdsService.getPlayers(this.selectedPosition, this.selectedGradYear, this.selectedRegion, this.selectedState, this.selectedGender).subscribe((data: any[]) => {
+            this.players = data;
+        })
     }
 }
