@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CommitmentsComponent } from './commitments/commitments.component';
 import { EcnlClubsComponent } from './ecnl-clubs/ecnl-clubs.component';
 import { GaClubsComponent } from './ga-clubs/ga-clubs.component';
 import { HomeComponent } from './home/home.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'ecnl/clubs', component: EcnlClubsComponent },
     { path: 'ga/clubs', component: GaClubsComponent },
     { path: 'ecnl/players', component: PlayersComponent },
+    { path: 'commitments', component: CommitmentsComponent },
     { path: 'ncaa/ranking/rpi', component: RpiRankingsComponent },
     { path: 'ncaa/ranking/usc', component: UscRankingsComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }

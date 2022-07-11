@@ -20,9 +20,10 @@ import { GaClubsComponent } from './ga-clubs/ga-clubs.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import { RpiRankingsComponent } from './rpi-rankings/rpi-rankings.component';
 import { UscRankingsComponent } from './usc-rankings/usc-rankings.component';
+import { CommitmentsComponent } from './commitments/commitments.component';
 
 @NgModule({
-    declarations: [AppComponent, PlayersComponent, MessagesComponent, ConfigComponent, HomeComponent, EcnlClubsComponent, GaClubsComponent, SpinnerOverlayComponent, RpiRankingsComponent, UscRankingsComponent],
+    declarations: [AppComponent, PlayersComponent, MessagesComponent, ConfigComponent, HomeComponent, EcnlClubsComponent, GaClubsComponent, SpinnerOverlayComponent, RpiRankingsComponent, UscRankingsComponent, CommitmentsComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
