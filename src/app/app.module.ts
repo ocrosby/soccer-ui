@@ -22,8 +22,22 @@ import { RpiRankingsComponent } from './rpi-rankings/rpi-rankings.component';
 import { UscRankingsComponent } from './usc-rankings/usc-rankings.component';
 import { CommitmentsComponent } from './commitments/commitments.component';
 
+import { NgxEchartsModule } from 'ngx-echarts';
+
 @NgModule({
-    declarations: [AppComponent, PlayersComponent, MessagesComponent, ConfigComponent, HomeComponent, EcnlClubsComponent, GaClubsComponent, SpinnerOverlayComponent, RpiRankingsComponent, UscRankingsComponent, CommitmentsComponent],
+    declarations: [
+        AppComponent,
+        PlayersComponent,
+        MessagesComponent,
+        ConfigComponent,
+        HomeComponent,
+        EcnlClubsComponent,
+        GaClubsComponent,
+        SpinnerOverlayComponent,
+        RpiRankingsComponent,
+        UscRankingsComponent,
+        CommitmentsComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -32,6 +46,14 @@ import { CommitmentsComponent } from './commitments/commitments.component';
         FormsModule,
         MaterialModule,
         HttpClientModule,
+        NgxEchartsModule.forRoot({
+            /**
+             * This will import all modules from echarts.
+             * If you only need custom modules,
+             * please refer to [Custom Build] section.
+             */
+            echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
+        })
     ],
     providers: [TdsService, NcaaService, EcnlService],
     bootstrap: [AppComponent],

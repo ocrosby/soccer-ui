@@ -5,40 +5,49 @@
     </app-spinner-overlay>
 </div>
 
-<mat-form-field appearance="fill">
-    <mat-label>Gender</mat-label>
-    <mat-select [(ngModel)]="selectedGender" name="gender">
-        <mat-option value="male">Male</mat-option>
-        <mat-option value="female">Female</mat-option>
-    </mat-select>
-    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
-</mat-form-field>
+<p>
+    <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="selectedGender" name="gender">
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+        </mat-select>
+        <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+    </mat-form-field>
 
-<mat-form-field appearance="fill">
-    <mat-label>Divisions</mat-label>
-    <mat-select [(ngModel)]="selectedDivision" name="division" (selectionChange)="onDivisionChange($event)">
-        <mat-option *ngFor="let division of divisions; index as i" value="{{division.divisionName}}"> {{division.divisionName | uppercase }} </mat-option>
-    </mat-select>
-</mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Divisions</mat-label>
+        <mat-select [(ngModel)]="selectedDivision" name="division" (selectionChange)="onDivisionChange($event)">
+            <mat-option *ngFor="let division of divisions; index as i" value="{{division.divisionName}}">
+                {{division.divisionName | uppercase }} </mat-option>
+        </mat-select>
+    </mat-form-field>
 
-<mat-form-field appearance="fill">
-    <mat-label>Conferences</mat-label>
-    <mat-select [(ngModel)]="selectedConference" name="conference">
-        <mat-option *ngFor="let conference of conferences; index as i" value="{{conference.name}}"> {{conference.name}} </mat-option>
-    </mat-select>
-</mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Conferences</mat-label>
+        <mat-select [(ngModel)]="selectedConference" name="conference">
+            <mat-option *ngFor="let conference of conferences; index as i" value="{{conference.name}}">
+                {{conference.name}} </mat-option>
+        </mat-select>
+    </mat-form-field>
 
-<mat-form-field appearance="fill">
-    <mat-label>Years</mat-label>
-    <mat-select [(ngModel)]="selectedYear" name="year">
-        <mat-option value="2022">2022</mat-option>
-        <mat-option value="2023">2023</mat-option>
-        <mat-option value="2024">2024</mat-option>
-    </mat-select>
-</mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Years</mat-label>
+        <mat-select [(ngModel)]="selectedYear" name="year">
+            <mat-option value="2022">2022</mat-option>
+            <mat-option value="2023">2023</mat-option>
+            <mat-option value="2024">2024</mat-option>
+        </mat-select>
+    </mat-form-field>
 
-<button mat-button color="primary" (click)="onSearch($event)">Search</button>
 
+</p>
+
+<p>
+    <button mat-button color="primary" (click)="onSearch($event)">Search</button>
+</p>
+
+<div echarts [options]="options" class="demo-chart"></div>
 
 <table mat-table [dataSource]="players" class="mat-elevation-z8">
 
