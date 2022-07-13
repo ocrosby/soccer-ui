@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
     </button>
     <span>{{title}}</span>
@@ -11,114 +11,31 @@
         <mat-icon>share</mat-icon>
     </button>
 
-    <!--
-  <span>
-    <button mat-button routerLink="/">{{title}}</button>
-    <button mat-button routerLink="/"><mat-icon>home</mat-icon></button>
-  </span>
-  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-    <button mat-button routerLink="/login" *ngIf="!isAuthenticated">
-      <mat-icon>power_settings_new</mat-icon>
-      Login
-    </button>
-    <button mat-button *ngIf="isAuthenticated" (click)="logout()">
-      <mat-icon>exit_to_app</mat-icon>
-      Logout
-    </button>
-    <button mat-button routerLink="/game">
-      <mat-icon>gamepad</mat-icon>
-      Play
-    </button>
-  </div>
-  <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
-    <mat-icon>menu</mat-icon>
-  </button>
-  -->
+    <mat-menu #menu="matMenu">
+        <a mat-menu-item color="primary" routerLink="/">Home</a>
+        <a mat-menu-item color="primary" routerLink="/commitments">Commitments</a>
+        <button mat-menu-item [matMenuTriggerFor]="ecnl">ECNL</button>
+        <button mat-menu-item [matMenuTriggerFor]="ga">GA</button>
+        <button mat-menu-item [matMenuTriggerFor]="ncaa">NCAA</button>
+    </mat-menu>
+    <mat-menu #ecnl="matMenu">
+        <a mat-menu-item color="primary" routerLink="/ecnl/clubs">Clubs</a>
+        <a mat-menu-item color="primary" routerLink="/ecnl/players">Players</a>
+    </mat-menu>
+    <mat-menu #ga="matMenu">
+        <a mat-menu-item color="primary" routerLink="/ga/clubs">Clubs</a>
+    </mat-menu>
+    <mat-menu #ncaa="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="ranking">Ranking</button>
+    </mat-menu>
+    <mat-menu #ranking="matMenu">
+        <a mat-menu-item color="primary" routerLink="/ncaa/ranking/rpi">RPI</a>
+        <a mat-menu-item color="primary" routerLink="/ncaa/ranking/usc">United Soccer Coaches</a>
+    </mat-menu>
 </mat-toolbar>
-<mat-menu x-position="before" #menu="matMenu">
-    <button mat-menu-item routerLink="/">
-        <mat-icon>home</mat-icon>
-        Home
-    </button>
-    <button mat-menu-item routerLink="/game">
-        <mat-icon>gamepad</mat-icon>
-        Play
-    </button>
-    <button mat-menu-item routerLink="/login" *ngIf="!isAuthenticated">
-        <mat-icon>power_settings_new</mat-icon>
-        Login
-    </button>
-    <button mat-menu-item *ngIf="isAuthenticated" (click)="logout()">
-        <mat-icon>exit_to_app</mat-icon>
-        Logout
-    </button>
-</mat-menu>
 
 <mat-drawer-container fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
-    <mat-drawer mode="side" fxFlex="30" opened>
-        <mat-nav-list role="navigation" class="mat-nav-list mat-list-base ng-tns-c142-2">
-            <a mat-list-item="" routerLink="/home" class="mat-list-item mat-focus-indicator ng-tns-c142-2 ng-star-inserted" aria-current="false" href="/components/autocomplete">
-                <span class="mat-list-item-content">
-                    <span mat-ripple="" class="mat-ripple mat-list-item-ripple"></span>
-                    <span class="mat-list-text"></span> Home
-                </span>
-            </a>
-            <a mat-list-item="" routerLink="/ecnl/clubs" class="mat-list-item mat-focus-indicator ng-tns-c142-2 ng-star-inserted" aria-current="false" href="/components/badge">
-                <span class="mat-list-item-content">
-                    <span mat-ripple="" class="mat-ripple mat-list-item-ripple"></span>
-                    <span class="mat-list-text"></span> ECNL Clubs
-                </span>
-            </a>
-            <a mat-list-item="" routerLink="/ga/clubs" class="mat-list-item mat-focus-indicator ng-tns-c142-2 ng-star-inserted" aria-current="false" href="/components/badge">
-                <span class="mat-list-item-content">
-                    <span mat-ripple="" class="mat-ripple mat-list-item-ripple"></span>
-                    <span class="mat-list-text"></span> GA Clubs
-                </span>
-            </a>
-            <a mat-list-item="" routerLink="/commitments" class="mat-list-item mat-focus-indicator ng-tns-c142-2 ng-star-inserted" aria-current="false" href="/components/badge">
-                <span class="mat-list-item-content">
-                    <span mat-ripple="" class="mat-ripple mat-list-item-ripple"></span>
-                    <span class="mat-list-text"></span> Commitments
-                </span>
-            </a>
-            <a mat-list-item="" routerLink="/ecnl/players" class="mat-list-item mat-focus-indicator ng-tns-c142-2 ng-star-inserted" aria-current="false" href="/components/badge">
-                <span class="mat-list-item-content">
-                    <span mat-ripple="" class="mat-ripple mat-list-item-ripple"></span>
-                    <span class="mat-list-text"></span> ECNL Players
-                </span>
-            </a>
-
-            <mat-accordion>
-                <mat-expansion-panel hideToggle>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      NCAA
-                    </mat-panel-title>
-                    <mat-panel-description>
-                      <!-- This is a summary of the content -->
-                    </mat-panel-description>
-                  </mat-expansion-panel-header>
-                  <p>
-                    <mat-nav-list role="navigation" class="mat-nav-list mat-list-base ng-tns-c142-2">
-                        <a mat-list-item="" routerLink="/ncaa/ranking/rpi" class="mat-list-item mat-focus-indicator ng-tns-c142-2 ng-star-inserted" aria-current="false" href="/components/autocomplete">
-                            <span class="mat-list-item-content">
-                                <span mat-ripple="" class="mat-ripple mat-list-item-ripple"></span>
-                                <span class="mat-list-text"></span> RPI Ranking
-                            </span>
-                        </a>
-                        <a mat-list-item="" routerLink="/ncaa/ranking/usc" class="mat-list-item mat-focus-indicator ng-tns-c142-2 ng-star-inserted" aria-current="false" href="/components/badge">
-                            <span class="mat-list-item-content">
-                                <span mat-ripple="" class="mat-ripple mat-list-item-ripple"></span>
-                                <span class="mat-list-text"></span> Coaches Ranking
-                            </span>
-                        </a>
-                    </mat-nav-list>
-                  </p>
-                </mat-expansion-panel>
-              </mat-accordion>
-        </mat-nav-list>
-    </mat-drawer>
-    <mat-drawer-content fxFlex="70">
+    <mat-drawer-content fxFlex="100">
         <router-outlet></router-outlet>
         <!-- <app-messages></app-messages> -->
     </mat-drawer-content>
