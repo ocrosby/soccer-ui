@@ -23,7 +23,7 @@ export class CommitmentsComponent implements OnInit {
     schools: School[] = [];
     players: Player[] = [];
 
-    displayedColumns = ['name', 'position', 'club', 'year', 'state', 'commitment'];
+    displayedColumns = ['name', 'position', 'club', 'league', 'year', 'state', 'commitment'];
 
     constructor(private tdsService: TdsService) {}
 

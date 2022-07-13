@@ -5,6 +5,7 @@ export interface Player {
     imageUrl: string;
     position: string;
     club: string;
+    league: string;
     highSchool: string;
     rating: string;
     year: number;
