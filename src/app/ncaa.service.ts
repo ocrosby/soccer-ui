@@ -3,24 +3,28 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { RPIRanking } from './rpi-rankings/rpi-rank';
 
+import { environment } from './../environments/environment';
+
 @Injectable({
     providedIn: 'root',
 })
 export class NcaaService {
-    private api =
-        'https://soccer-api.happyocean-04c34fb4.eastus2.azurecontainerapps.io/api';
-
     constructor(private http: HttpClient) {}
 
     getRpiRankings(): Observable<any> {
         return this.http
-            .get<RPIRanking[]>(this.api + '/ncaa/rankings/di/rpi')
+            .get<RPIRanking[]>(environment.apiUrl + '/ncaa/rankings/di/rpi')
             .pipe(retry(1), catchError(this.handleError));
     }
 
     getUscRankings(division: string): Observable<any> {
         return this.http
-            .get<RPIRanking[]>(this.api + '/ncaa/rankings/' + division + '/united-soccer-coaches')
+            .get<RPIRanking[]>(
+                environment.apiUrl +
+                    '/ncaa/rankings/' +
+                    division +
+                    '/united-soccer-coaches'
+            )
             .pipe(retry(1), catchError(this.handleError));
     }
 

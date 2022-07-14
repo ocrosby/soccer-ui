@@ -10,30 +10,54 @@ import { TdsService } from '../tds.service';
     styleUrls: ['./players.component.scss'],
 })
 export class PlayersComponent implements OnInit {
+    overlay: boolean = false;
+
     players: Player[] = [];
 
     selectedPosition: string;
     selectedGradYear: string;
     selectedRegion: string;
     selectedState: string;
-    selectedGender: string
+    selectedGender: string;
 
-    displayedColumns: string[] = ['name', 'position', 'club', 'highSchool', 'rating', 'year', 'state', 'commitment'];
+    displayedColumns: string[] = [
+        'name',
+        'position',
+        'club',
+        'highSchool',
+        'rating',
+        'year',
+        'state',
+        'commitment',
+    ];
 
-    constructor(private tdsService: TdsService, private messageService: MessageService) {
-        this.selectedPosition = "All";
-        this.selectedGradYear = "2023";
-        this.selectedRegion = "All";
-        this.selectedState = "GA";
-        this.selectedGender = "female";
+    constructor(
+        private tdsService: TdsService,
+        private messageService: MessageService
+    ) {
+        this.selectedPosition = 'All';
+        this.selectedGradYear = '2023';
+        this.selectedRegion = 'All';
+        this.selectedState = 'GA';
+        this.selectedGender = 'female';
     }
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 
     onSearch(): void {
-        this.tdsService.getPlayers(this.selectedPosition, this.selectedGradYear, this.selectedRegion, this.selectedState, this.selectedGender).subscribe((data: any[]) => {
-            this.players = data;
-        })
+        this.overlay = true;
+
+        this.tdsService
+            .getPlayers(
+                this.selectedPosition,
+                this.selectedGradYear,
+                this.selectedRegion,
+                this.selectedState,
+                this.selectedGender
+            )
+            .subscribe((data: any[]) => {
+                this.players = data;
+                this.overlay = false;
+            });
     }
 }

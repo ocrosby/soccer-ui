@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, of, map, throwError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Conference } from './conference';
 import { ConfigService } from './config.service';
 import { Division } from './division';
@@ -9,40 +9,62 @@ import { Organization } from './organization';
 import { Player } from './player';
 import { School } from './school';
 
+import { environment } from './../environments/environment';
+
 @Injectable({
     providedIn: 'root',
 })
 export class TdsService {
-    private api = "https://soccer-api.happyocean-04c34fb4.eastus2.azurecontainerapps.io/api";
-
-    constructor(private http: HttpClient, private configService: ConfigService, private messageService: MessageService) {}
+    constructor(
+        private http: HttpClient,
+        private messageService: MessageService
+    ) {}
 
     getOrganizations(): Observable<any> {
-        return this.http.get<Organization[]>(this.api + "/tds/college/organizations")
-            .pipe(
-                catchError(this.handleError)
+        return this.http
+            .get<Organization[]>(
+                environment.apiUrl + '/tds/college/organizations'
             )
+            .pipe(catchError(this.handleError));
     }
 
     getDivisions(): Observable<any> {
-        return this.http.get<Division[]>(this.api + "/tds/college/divisions")
-            .pipe(
-                catchError(this.handleError)
-            )
+        return this.http
+            .get<Division[]>(environment.apiUrl + '/tds/college/divisions')
+            .pipe(catchError(this.handleError));
     }
 
     getConferences(gender: string, division: string): Observable<any> {
-        return this.http.get<Conference[]>(this.api + "/tds/college/conferences/" + gender + "/" + division)
-            .pipe(
-                catchError(this.handleError)
+        return this.http
+            .get<Conference[]>(
+                environment.apiUrl +
+                    '/tds/college/conferences/' +
+                    gender +
+                    '/' +
+                    division
             )
+            .pipe(catchError(this.handleError));
     }
 
-    getCommitments(gender: string, division: string, conference: string, year: string): Observable<any> {
-        return this.http.get<School[]>(this.api + "/tds/college/conference/commits/" + gender +"/" + division + "/" + encodeURI(conference) + "/" + year)
-            .pipe(
-                catchError(this.handleError)
+    getCommitments(
+        gender: string,
+        division: string,
+        conference: string,
+        year: string
+    ): Observable<any> {
+        return this.http
+            .get<School[]>(
+                environment.apiUrl +
+                    '/tds/college/conference/commits/' +
+                    gender +
+                    '/' +
+                    division +
+                    '/' +
+                    encodeURI(conference) +
+                    '/' +
+                    year
             )
+            .pipe(catchError(this.handleError));
     }
 
     getPlayers(
@@ -52,14 +74,18 @@ export class TdsService {
         state: string,
         gender: string
     ): Observable<any> {
+        let payload = {
+            name: null,
+            position: position,
+            gradyear: gradYear,
+            region: region,
+            state: state,
+            gender: gender,
+        };
+
+        console.log(payload);
         return this.http
-            .post<Player[]>(this.api + "/tds/players", {
-                position: position,
-                'grad-year': gradYear,
-                region: region,
-                state: state,
-                gender: gender,
-            })
+            .post<any>(environment.apiUrl + '/tds/players', payload)
             .pipe(catchError(this.handleError));
     }
 
@@ -70,12 +96,17 @@ export class TdsService {
 
     private handleError(error: HttpErrorResponse): any {
         if (error.error instanceof ErrorEvent) {
-          console.error('An error occurred:', error.error.message);
+            console.error('An error occurred:', error.error.message);
         } else {
-          console.error(
-            `Backend returned code ${error.status}, ` +
-            `body was: ${error.error}`);
+            console.error(
+                `Backend returned code ${error.status}, ` +
+                    `body was: ${error.error}`
+            );
         }
-        return throwError(() => new Error('Something bad happened; please try again later.'));
-      }
+
+        console.log(error);
+        return throwError(
+            () => new Error('Something bad happened; please try again later.')
+        );
+    }
 }
