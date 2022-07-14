@@ -12,7 +12,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'ecnl/clubs', component: EcnlClubsComponent },
     { path: 'ga/clubs', component: GaClubsComponent },
-    { path: 'ecnl/players', component: PlayersComponent },
+    { path: 'players', component: PlayersComponent },
     { path: 'commitments', component: CommitmentsComponent },
     { path: 'ncaa/ranking/rpi', component: RpiRankingsComponent },
     { path: 'ncaa/ranking/usc', component: UscRankingsComponent },

@@ -14,13 +14,13 @@
     <mat-menu #menu="matMenu">
         <a mat-menu-item color="primary" routerLink="/">Home</a>
         <a mat-menu-item color="primary" routerLink="/commitments">Commitments</a>
+        <a mat-menu-item color="primary" routerLink="/players">Players</a>
         <button mat-menu-item [matMenuTriggerFor]="ecnl">ECNL</button>
         <button mat-menu-item [matMenuTriggerFor]="ga">GA</button>
         <button mat-menu-item [matMenuTriggerFor]="ncaa">NCAA</button>
     </mat-menu>
     <mat-menu #ecnl="matMenu">
         <a mat-menu-item color="primary" routerLink="/ecnl/clubs">Clubs</a>
-        <a mat-menu-item color="primary" routerLink="/ecnl/players">Players</a>
     </mat-menu>
     <mat-menu #ga="matMenu">
         <a mat-menu-item color="primary" routerLink="/ga/clubs">Clubs</a>
