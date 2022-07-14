@@ -30,6 +30,9 @@
         <mat-label>Graduation Year</mat-label>
         <mat-select [(ngModel)]="selectedGradYear" name="gradYear">
             <mat-option value="All">All</mat-option>
+            <mat-option value="2020">2020</mat-option>
+            <mat-option value="2021">2021</mat-option>
+            <mat-option value="2022">2022</mat-option>
             <mat-option value="2023">2023</mat-option>
             <mat-option value="2024">2024</mat-option>
             <mat-option value="2025">2025</mat-option>
@@ -66,8 +69,8 @@
     <mat-form-field appearance="fill">
         <mat-label>State</mat-label>
         <mat-select [(ngModel)]="selectedState" name="state">
-            <mat-option value="North Carolina">North Carolina</mat-option>
-            <mat-option value="Georgia">Georgia</mat-option>
+            <mat-option value="All">All</mat-option>
+            <mat-option *ngFor="let state of states" value="{{state}}">{{state}}</mat-option>
         </mat-select>
         <mat-hint align="end"></mat-hint>
     </mat-form-field>

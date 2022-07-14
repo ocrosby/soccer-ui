@@ -20,6 +20,60 @@ export class PlayersComponent implements OnInit {
     selectedState: string;
     selectedGender: string;
 
+    states: string[] = [
+        "Alabama",
+        "Alaska",
+        "Arizona",
+        "Arkansas",
+        "California",
+        "Colorado",
+        "Connecticut",
+        "Delaware",
+        "District of Columbia",
+        "Florida",
+        "Georgia",
+        "Hawaii",
+        "Idaho",
+        "Illinois",
+        "Indiana",
+        "International",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Louisiana",
+        "Maine",
+        "Maryland",
+        "Massachusetts",
+        "Michigan",
+        "Minnesota",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "Nevada",
+        "New Hampshire",
+        "New Jersey",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Ohio",
+        "Oklahoma",
+        "Oregon",
+        "Pennsylvania",
+        "Rhode Island",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Vermont",
+        "Virginia",
+        "Washington",
+        "West Virginia",
+        "Wisconsin",
+        "Wyoming",
+    ]
+
     displayedColumns: string[] = [
         'name',
         'position',
@@ -38,11 +92,12 @@ export class PlayersComponent implements OnInit {
         this.selectedPosition = 'All';
         this.selectedGradYear = '2023';
         this.selectedRegion = 'All';
-        this.selectedState = 'GA';
-        this.selectedGender = 'female';
+        this.selectedState = 'Georgia';
+        this.selectedGender = 'Female';
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+    }
 
     onSearch(): void {
         this.overlay = true;
