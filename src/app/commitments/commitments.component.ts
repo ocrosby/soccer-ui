@@ -43,6 +43,9 @@ export class CommitmentsComponent implements OnInit {
         this.tdsService.getDivisions().subscribe((data: any[]) => {
             this.divisions = data;
             this.overlay = false;
+
+            this.selectedDivision = "di";
+            this.onDivisionChange(null);
         });
     }
 
