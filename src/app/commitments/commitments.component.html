@@ -25,7 +25,7 @@
 
     <mat-form-field appearance="fill">
         <mat-label>Conferences</mat-label>
-        <mat-select [(ngModel)]="selectedConference" name="conference">
+        <mat-select [(ngModel)]="selectedConference" name="conference" (selectionChange)="onSearch($event)">
             <mat-option *ngFor="let conference of conferences; index as i" value="{{conference.name}}">
                 {{conference.name}} </mat-option>
         </mat-select>
