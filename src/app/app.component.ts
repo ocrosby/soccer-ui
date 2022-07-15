@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Soccer UI';
-  public isAuthenticated = false;
+    title = 'SoccerHub';
+    public isAuthenticated = false;
 
-  panelOpenState = false;
+    panelOpenState = false;
 
-  public logout(): void {
-    // todo
-  }
+    public logout(): void {
+        // todo
+    }
 }

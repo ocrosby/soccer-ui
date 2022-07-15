@@ -44,6 +44,7 @@ export class CommitmentsComponent implements OnInit {
             this.divisions = data;
             this.overlay = false;
 
+            this.selectedConference = "ASUN";
             this.selectedDivision = "di";
             this.onDivisionChange(null);
         });
