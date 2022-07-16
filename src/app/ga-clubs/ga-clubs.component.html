@@ -17,13 +17,13 @@
     </ng-container>
 
     <!-- State Column -->
-    <ng-container matColumnDef="state">
+    <ng-container *ngIf="!minimalTable" matColumnDef="state">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
         <td mat-cell *matCellDef="let element"> {{element.state}} </td>
     </ng-container>
 
     <!-- Conference Column -->
-    <ng-container matColumnDef="conference">
+    <ng-container *ngIf="!minimalTable" matColumnDef="conference">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Conference </th>
         <td mat-cell *matCellDef="let element"> {{element.conference}} </td>
     </ng-container>

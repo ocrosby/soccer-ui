@@ -18,6 +18,7 @@
         <button mat-menu-item [matMenuTriggerFor]="ecnl">ECNL</button>
         <button mat-menu-item [matMenuTriggerFor]="ga">GA</button>
         <button mat-menu-item [matMenuTriggerFor]="ncaa">NCAA</button>
+        <button mat-menu-item [matMenuTriggerFor]="nwsl">NWSL</button>
     </mat-menu>
     <mat-menu #ecnl="matMenu">
         <a mat-menu-item color="primary" routerLink="/ecnl/clubs">Clubs</a>
@@ -31,6 +32,9 @@
     <mat-menu #ranking="matMenu">
         <a mat-menu-item color="primary" routerLink="/ncaa/ranking/rpi">RPI</a>
         <a mat-menu-item color="primary" routerLink="/ncaa/ranking/usc">United Soccer Coaches</a>
+    </mat-menu>
+    <mat-menu #nwsl="matMenu">
+        <a mat-menu-item color="primary" routerLink="/nwsl/players">Players</a>
     </mat-menu>
 </mat-toolbar>
 

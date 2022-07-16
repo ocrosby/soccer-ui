@@ -23,6 +23,7 @@ import { UscRankingsComponent } from './usc-rankings/usc-rankings.component';
 import { CommitmentsComponent } from './commitments/commitments.component';
 
 import { NgxEchartsModule } from 'ngx-echarts';
+import { NwslPlayersComponent } from './nwsl-players/nwsl-players.component';
 
 @NgModule({
     declarations: [
@@ -37,6 +38,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
         RpiRankingsComponent,
         UscRankingsComponent,
         CommitmentsComponent,
+        NwslPlayersComponent,
     ],
     imports: [
         BrowserModule,
