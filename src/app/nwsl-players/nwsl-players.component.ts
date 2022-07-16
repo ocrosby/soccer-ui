@@ -16,12 +16,12 @@ export class NwslPlayersComponent implements OnInit {
 
     displayedColumns: string[] = [
         'name',
-        'position',
-        'height',
-        'country',
-        'hometown',
-        // 'dob',
         'jersey',
+        'position',
+        'hometown',
+        'country',
+        'dob',
+        'height',
         'team'
     ];
 
