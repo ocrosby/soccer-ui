@@ -122,7 +122,7 @@ export class CommitmentsComponent implements OnInit {
                     this.chartData.push(item);
                 }
 
-                console.log(this.chartData);
+                // console.log(this.chartData);
             });
     }
 
