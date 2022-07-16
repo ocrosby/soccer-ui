@@ -25,3 +25,26 @@ export interface Player {
     slug: string;
     team: Team;
   }
+
+export interface Standing {
+    awayMatchesDrawn: number;
+    awayMatchesLost: number;
+    awayMatchesPlayed: number;
+    awayMatchesWon: number;
+    division: string;
+    goalDifference: number;
+    goalsAgainst: number;
+    goalsFor: number;
+    homeMatchesDrawn: number;
+    homeMatchesLost: number;
+    homeMatchesPlayed: number;
+    homeMatchesWon: number;
+    lastSix: string;
+    points: number;
+    rank: number;
+    team: Team;
+    totalMatchesDrawn: number;
+    totalMatchesLost: number;
+    totalMatchesPlayed: number;
+    totalMatchesWon: number
+}
