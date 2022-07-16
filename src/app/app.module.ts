@@ -25,6 +25,8 @@ import { CommitmentsComponent } from './commitments/commitments.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { NwslPlayersComponent } from './nwsl-players/nwsl-players.component';
 import { NwslStandingsComponent } from './nwsl-standings/nwsl-standings.component';
+import { NwslModule } from './nwsl/nwsl.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -50,6 +52,8 @@ import { NwslStandingsComponent } from './nwsl-standings/nwsl-standings.componen
         FormsModule,
         MaterialModule,
         HttpClientModule,
+        SharedModule,
+        NwslModule,
         NgxEchartsModule.forRoot({
             /**
              * This will import all modules from echarts.
