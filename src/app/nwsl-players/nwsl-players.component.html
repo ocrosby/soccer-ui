@@ -5,7 +5,10 @@
     </app-spinner-overlay>
 </div>
 
-<div *ngIf="players.length > 0" echarts [options]="options" class="demo-chart"></div>
+<div *ngIf="players.length > 0">
+    <span>NWSL Players by Country (excluding USA)</span>
+    <div echarts [options]="options" class="demo-chart"></div>
+</div>
 
 <table mat-table matSort [dataSource]="players" class="mat-elevation-z8">
 
