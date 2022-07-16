@@ -19,6 +19,7 @@ export class NwslStandingsComponent implements OnInit {
         "overall",
         "home",
         "away",
+        "gamesplayed",
         "difference",
         "for",
         "against",
