@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NwslRoutingModule } from './nwsl-routing.module';
-import { NwslComponent } from './nwsl.component';
+import { TdsRoutingModule } from './tds-routing.module';
+import { TdsComponent } from './tds.component';
+import { CommitmentsComponent } from './commitments/commitments.component';
 import { PlayersComponent } from './players/players.component';
-import { StandingsComponent } from './standings/standings.component';
-import { NwslService } from '../core/nwsl.service';
+import { MaterialModule } from '../material.module';
 import { CoreModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
-import { MaterialModule } from '../material.module';
+import { TdsService } from '../core/tds.service';
+import { FormsModule } from '@angular/forms';
 import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
-    declarations: [NwslComponent, PlayersComponent, StandingsComponent],
+    declarations: [TdsComponent, CommitmentsComponent, PlayersComponent],
     imports: [
+        FormsModule,
         MaterialModule,
         CommonModule,
         CoreModule,
         SharedModule,
-        NwslRoutingModule,
+        TdsRoutingModule,
         NgxEchartsModule.forRoot({
             /**
              * This will import all modules from echarts.
@@ -28,6 +30,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
             echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
         })
     ],
-    providers: [NwslService],
+    exports: [TdsComponent, CommitmentsComponent, PlayersComponent],
+    providers: [TdsService]
 })
-export class NwslModule {}
+export class TdsModule {}

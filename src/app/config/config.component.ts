@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Config } from '../config';
-import { ConfigService } from '../config.service';
+import { Config } from '../shared/config';
+import { ConfigService } from '../core/config.service';
 
 @Component({
     selector: 'app-config',

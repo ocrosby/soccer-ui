@@ -2,23 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '../material.module';
+import { MaterialModule } from '../../material.module';
 
-import { ConfigComponent } from './config.component';
+import { UscRankingsComponent } from './usc-rankings.component';
 
-describe('ConfigComponent', () => {
-    let component: ConfigComponent;
+describe('UscRankingsComponent', () => {
+    let component: UscRankingsComponent;
     let httpClient: HttpClient;
     let httpTestingController: HttpTestingController;
-    let fixture: ComponentFixture<ConfigComponent>;
+    let fixture: ComponentFixture<UscRankingsComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [MaterialModule, NoopAnimationsModule, HttpClientTestingModule],
-            declarations: [ConfigComponent],
+            declarations: [UscRankingsComponent],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(ConfigComponent);
+        fixture = TestBed.createComponent(UscRankingsComponent);
 
         // Inject the http service and test controller for each test
         httpClient = TestBed.inject(HttpClient);

@@ -13,8 +13,8 @@
 
     <mat-menu #menu="matMenu">
         <a mat-menu-item color="primary" routerLink="/">Home</a>
-        <a mat-menu-item color="primary" routerLink="/commitments">Commitments</a>
-        <a mat-menu-item color="primary" routerLink="/players">Players</a>
+        <a mat-menu-item color="primary" routerLink="/tds/commitments">Commitments</a>
+        <a mat-menu-item color="primary" routerLink="/tds/players">Players</a>
         <button mat-menu-item [matMenuTriggerFor]="ecnl">ECNL</button>
         <button mat-menu-item [matMenuTriggerFor]="ga">GA</button>
         <button mat-menu-item [matMenuTriggerFor]="ncaa">NCAA</button>
@@ -42,6 +42,5 @@
 <mat-drawer-container fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
     <mat-drawer-content fxFlex="100">
         <router-outlet></router-outlet>
-        <!-- <app-messages></app-messages> -->
     </mat-drawer-content>
 </mat-drawer-container>

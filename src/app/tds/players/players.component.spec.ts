@@ -1,24 +1,31 @@
 import { HttpClient } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+    HttpClientTestingModule,
+    HttpTestingController,
+} from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material.module';
 
-import { ConfigComponent } from './config.component';
+import { PlayersComponent } from './players.component';
 
-describe('ConfigComponent', () => {
-    let component: ConfigComponent;
+describe('PlayersComponent', () => {
+    let component: PlayersComponent;
     let httpClient: HttpClient;
     let httpTestingController: HttpTestingController;
-    let fixture: ComponentFixture<ConfigComponent>;
+    let fixture: ComponentFixture<PlayersComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [MaterialModule, NoopAnimationsModule, HttpClientTestingModule],
-            declarations: [ConfigComponent],
+            imports: [
+                MaterialModule,
+                NoopAnimationsModule,
+                HttpClientTestingModule,
+            ],
+            declarations: [PlayersComponent],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(ConfigComponent);
+        fixture = TestBed.createComponent(PlayersComponent);
 
         // Inject the http service and test controller for each test
         httpClient = TestBed.inject(HttpClient);

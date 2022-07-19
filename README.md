@@ -26,15 +26,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-
 ## Docker
-
 
 ```bash
 > docker build -t soccer-ui .
 > docker run -it --rm -p 9000:80 soccer-ui
 ```
-
 
 ## References
 

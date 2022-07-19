@@ -4,21 +4,21 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material.module';
 
-import { ConfigComponent } from './config.component';
+import { RpiRankingsComponent } from './rpi-rankings.component';
 
-describe('ConfigComponent', () => {
-    let component: ConfigComponent;
+describe('RpiRankingsComponent', () => {
+    let component: RpiRankingsComponent;
     let httpClient: HttpClient;
     let httpTestingController: HttpTestingController;
-    let fixture: ComponentFixture<ConfigComponent>;
+    let fixture: ComponentFixture<RpiRankingsComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [MaterialModule, NoopAnimationsModule, HttpClientTestingModule],
-            declarations: [ConfigComponent],
+            declarations: [RpiRankingsComponent],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(ConfigComponent);
+        fixture = TestBed.createComponent(RpiRankingsComponent);
 
         // Inject the http service and test controller for each test
         httpClient = TestBed.inject(HttpClient);
