@@ -15,13 +15,15 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { ClarityModule } from "@clr/angular";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         MessagesComponent,
         ConfigComponent,
-        HomeComponent
+        HomeComponent,
+        PageNotFoundComponent
     ],
     imports: [
         BrowserModule,

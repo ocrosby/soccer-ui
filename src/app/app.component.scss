@@ -1,24 +1,31 @@
 .example-container {
-  width: 400px;
-  height: 200px;
-  margin: 10px;
-  border: 1px solid #555;
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid #555;
 }
 
 .example-spacer {
-  flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 
 .example-icon {
-  color: primary
+    color: primary;
 }
 
 .mat-form-field + .mat-form-field {
     margin-left: 8px;
-  }
+}
 
 mat-drawer-content {
     margin: 50px;
     margin-top: 100px;
     margin-bottom: 100px;
+}
+
+.clr-footer {
+    background: #c1c1c1;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 24px;
 }
