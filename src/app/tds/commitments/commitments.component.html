@@ -1,10 +1,10 @@
 <h1>{{selectedYear}} College Commitments</h1>
 <h2>{{selectedConference}}</h2>
-<!--
-<span *ngIf="loadingData" class="spinner">
-    Loading...
-</span>
--->
+
+<div *ngIf="overlay">
+    <app-spinner-overlay [overlay]="overlay">
+    </app-spinner-overlay>
+</div>
 
 <div class="flex-parent-element">
     <div class="flex-child-element">

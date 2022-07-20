@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { LoggerService } from 'src/app/core/logger.service';
 import { TdsService } from 'src/app/core/tds.service';
 import { Conference } from 'src/app/shared/conference';
 import { Division } from 'src/app/shared/division';
@@ -12,7 +13,7 @@ import { School } from 'src/app/shared/school';
     styleUrls: ['./commitments.component.scss'],
 })
 export class CommitmentsComponent implements OnInit {
-    loadingData: boolean = false;
+    overlay: boolean = false;
     selectedGender: string = 'female';
     selectedDivision: string = 'di';
     selectedConference: string = '';
@@ -38,13 +39,13 @@ export class CommitmentsComponent implements OnInit {
 
     subscriptions: Subscription[] = [];
 
-    constructor(private tdsService: TdsService) {}
+    constructor(private logger: LoggerService, private tdsService: TdsService) {}
 
     ngOnInit(): void {
-        this.loadingData = true;
+        this.overlay = true;
         this.tdsService.getDivisions().subscribe((data: any[]) => {
             this.divisions = data;
-            this.loadingData = false;
+            this.overlay = false;
 
             this.selectedDivision = this.divisions[0].divisionName;
             this.onDivisionChange();
@@ -74,20 +75,20 @@ export class CommitmentsComponent implements OnInit {
     onDivisionChange() {
         console.log('Selected division is ', this.selectedDivision);
 
-        this.loadingData = true;
+        this.overlay = true;
         this.tdsService
             .getConferences(this.selectedGender, this.selectedDivision)
             .subscribe((response) => {
                 this.conferences = response;
-                this.loadingData = false;
+                this.overlay = false;
 
                 this.selectedConference = this.conferences[0].name;
             });
     }
 
     onSubmit(): void {
+        this.overlay = true;
         this.chartData = [];
-        this.loadingData = true;
         this.tdsService
             .getCommitments(
                 this.selectedGender,
@@ -96,6 +97,7 @@ export class CommitmentsComponent implements OnInit {
                 this.selectedYear
             )
             .subscribe((data: any[]) => {
+                this.overlay = false;
                 this.schools = data;
                 this.players = [];
 
@@ -105,7 +107,7 @@ export class CommitmentsComponent implements OnInit {
                         this.players.push(player);
                     }
                 }
-                this.loadingData = false;
+                this.overlay = false;
 
                 this.setOptions();
 
@@ -142,9 +144,7 @@ export class CommitmentsComponent implements OnInit {
 
                     this.chartData.push(item);
                 }
-            },
-            err => console.log('HTTP Error', err)
-            );
+            });
     }
 
     private setOptions() {

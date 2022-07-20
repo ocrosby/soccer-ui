@@ -5,87 +5,67 @@
     </app-spinner-overlay>
 </div>
 
-<div class="example-container">
-    <!--
-    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
-        <mat-label>Enter some input</mat-label>
-        <input matInput #input maxlength="10" placeholder="Ex. Nougat">
-        <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-    </mat-form-field>
-    -->
+<form clrForm clrLayout="compact" clrLabelSize="1" (submit)="onSearch()">
+    <clr-select-container>
+        <label>Position</label>
+        <select clrSelect name="position" [(ngModel)]="selectedPosition">
+            <option value="All">All</option>
+            <option value="Goalkeeper">Goalkeeper</option>
+            <option value="Defender">Defender</option>
+            <option value="Midfielder">Midfielder</option>
+            <option value="Forward">Forward</option>
+        </select>
+        <clr-control-helper>Player Position</clr-control-helper>
+        <clr-control-error>This field is required!</clr-control-error>
+    </clr-select-container>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Position</mat-label>
-        <mat-select [(ngModel)]="selectedPosition" name="position">
-            <mat-option value="All">All</mat-option>
-            <mat-option value="Goalkeeper">Goalkeeper</mat-option>
-            <mat-option value="Defender">Defender</mat-option>
-            <mat-option value="Midfielder">Midfielder</mat-option>
-            <mat-option value="Forward">Forward</mat-option>
-        </mat-select>
-        <mat-hint align="end"></mat-hint>
-    </mat-form-field>
+    <clr-select-container>
+        <label>Year</label>
+        <select clrSelect name="gradYear" [(ngModel)]="selectedGradYear">
+            <option value="All">All</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+        </select>
+        <clr-control-helper>Graduation Year</clr-control-helper>
+        <clr-control-error>This field is required!</clr-control-error>
+    </clr-select-container>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Graduation Year</mat-label>
-        <mat-select [(ngModel)]="selectedGradYear" name="gradYear">
-            <mat-option value="All">All</mat-option>
-            <mat-option value="2022">2022</mat-option>
-            <mat-option value="2023">2023</mat-option>
-            <mat-option value="2024">2024</mat-option>
-            <mat-option value="2025">2025</mat-option>
-            <mat-option value="2026">2026</mat-option>
-        </mat-select>
-        <mat-hint align="end"></mat-hint>
-    </mat-form-field>
+    <clr-select-container>
+        <label>Region</label>
+        <select clrSelect name="region" [(ngModel)]="selectedRegion">
+            <option value="All">All</option>
+            <option *ngFor="let region of regions" value="{{region}}">{{region}}</option>
+        </select>
+        <clr-control-helper>Player Region</clr-control-helper>
+        <clr-control-error>This field is required!</clr-control-error>
+    </clr-select-container>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Region</mat-label>
-        <mat-select [(ngModel)]="selectedRegion" name="region">
-            <mat-option value="All">All</mat-option>
-            <mat-option value="Florida">Florida</mat-option>
-            <mat-option value="Great Lakes">Great Lakes</mat-option>
-            <mat-option value="Heartland">Heartland</mat-option>
-            <mat-option value="International">International</mat-option>
-            <mat-option value="Mid Atlantic">Mid Atlantic</mat-option>
-            <mat-option value="Midwest">Midwest</mat-option>
-            <mat-option value="New Jersey">New Jersey</mat-option>
-            <mat-option value="New York">New York</mat-option>
-            <mat-option value="Northeast">Northeast</mat-option>
-            <mat-option value="Northern California & Hawaii">Northern California & Hawaii</mat-option>
-            <mat-option value="Pacific Northwest">Pacific Northwest</mat-option>
-            <mat-option value="Pennsylvania">Pennsylvania</mat-option>
-            <mat-option value="Rocky Mountains & Southwest">Rocky Mountains & Southwest</mat-option>
-            <mat-option value="South">South</mat-option>
-            <mat-option value="South Atlantic">South Atlantic</mat-option>
-            <mat-option value="Southern California">Southern California</mat-option>
-            <mat-option value="Texas">Texas</mat-option>
-        </mat-select>
-        <mat-hint align="end"></mat-hint>
-    </mat-form-field>
+    <clr-select-container>
+        <label>State</label>
+        <select clrSelect name="state" [(ngModel)]="selectedState" (change)="onSearch()">
+            <option value="All">All</option>
+            <option *ngFor="let state of states" value="{{state}}">{{state}}</option>
+        </select>
+        <clr-control-helper>Player State</clr-control-helper>
+        <clr-control-error>This field is required!</clr-control-error>
+    </clr-select-container>
 
-    <mat-form-field appearance="fill">
-        <mat-label>State</mat-label>
-        <mat-select [(ngModel)]="selectedState" name="state">
-            <mat-option value="All">All</mat-option>
-            <mat-option *ngFor="let state of states" value="{{state}}">{{state}}</mat-option>
-        </mat-select>
-        <mat-hint align="end"></mat-hint>
-    </mat-form-field>
+    <clr-select-container>
+        <label>Gender</label>
+        <select clrSelect name="gender" [(ngModel)]="selectedGender">
+            <option value="All">All</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <clr-control-helper></clr-control-helper>
+        <clr-control-error>This field is required!</clr-control-error>
+    </clr-select-container>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Gender</mat-label>
-        <mat-select [(ngModel)]="selectedGender" name="gender">
-            <mat-option value="All">All</mat-option>
-            <mat-option value="Male">Male</mat-option>
-            <mat-option value="Female">Female</mat-option>
-        </mat-select>
-        <mat-hint align="end"></mat-hint>
-    </mat-form-field>
-
-    <button mat-button class="btn btn-primary" (click)="onSearch()">Search</button>
-
-</div>
+    <button type="submit" mat-button class="btn btn-primary">Search</button>
+</form>
 
 <clr-datagrid>
     <clr-dg-column>Name</clr-dg-column>

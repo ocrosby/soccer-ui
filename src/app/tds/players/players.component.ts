@@ -19,6 +19,26 @@ export class PlayersComponent implements OnInit {
     selectedState: string;
     selectedGender: string;
 
+    regions: string[] = [
+        "Florida",
+        "Great Lakes",
+        "Heartland",
+        "International",
+        "Mid Atlantic",
+        "Midwest",
+        "New Jersey",
+        "New York",
+        "Northeast",
+        "Northern California & Hawaii",
+        "Pacific Northwest",
+        "Pennsylvania",
+        "Rocky Mountains & Southwest",
+        "South",
+        "South Atlantic",
+        "Southern California",
+        "Texas"
+    ];
+
     states: string[] = [
         'Alabama',
         'Alaska',
@@ -112,5 +132,9 @@ export class PlayersComponent implements OnInit {
                 this.players = data;
                 this.overlay = false;
             });
+    }
+
+    onPosition() {
+
     }
 }
