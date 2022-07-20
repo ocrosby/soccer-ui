@@ -11,6 +11,8 @@ export interface Player {
     year: number;
     city: string;
     state: string;
+    team: string;
+    region: string;
     commitment: string;
     commitmentUrl: string;
   }
