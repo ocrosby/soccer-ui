@@ -8,11 +8,12 @@ import { MaterialModule } from '../material.module';
 import { CoreModule } from '@angular/flex-layout';
 import { EcnlService } from '../core/ecnl.service';
 import { SharedModule } from '../shared/shared.module';
-
+import { ClarityModule } from "@clr/angular";
 @NgModule({
     declarations: [EcnlComponent, ClubsComponent],
     imports: [
         MaterialModule,
+        ClarityModule,
         CommonModule,
         CoreModule,
         SharedModule,

@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { ClarityModule } from "@clr/angular";
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { CoreModule } from './core/core.module';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        ClarityModule,
         FlexLayoutModule,
         FormsModule,
         MaterialModule,

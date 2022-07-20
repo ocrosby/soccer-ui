@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { TdsService } from 'src/app/core/tds.service';
 import { Conference } from 'src/app/shared/conference';
 import { Division } from 'src/app/shared/division';
@@ -11,9 +12,9 @@ import { School } from 'src/app/shared/school';
     styleUrls: ['./commitments.component.scss'],
 })
 export class CommitmentsComponent implements OnInit {
-    overlay: boolean = false;
+    loadingData: boolean = false;
     selectedGender: string = 'female';
-    selectedDivision: string = '';
+    selectedDivision: string = 'di';
     selectedConference: string = '';
     selectedYear: string = '2023';
 
@@ -35,36 +36,58 @@ export class CommitmentsComponent implements OnInit {
     options: any;
     chartData: any[] = [];
 
+    subscriptions: Subscription[] = [];
+
     constructor(private tdsService: TdsService) {}
 
     ngOnInit(): void {
+        this.loadingData = true;
         this.tdsService.getDivisions().subscribe((data: any[]) => {
             this.divisions = data;
-            this.overlay = false;
+            this.loadingData = false;
 
-            this.selectedConference = 'ASUN';
-            this.selectedDivision = 'di';
-            this.onDivisionChange(null);
+            this.selectedDivision = this.divisions[0].divisionName;
+            this.onDivisionChange();
         });
     }
 
-    onDivisionChange(event: any): void {
-        this.overlay = true;
+    findDivisionByName(name: string): Division | null {
+        for (let division of this.divisions) {
+            if (division.divisionName === name) {
+                return division;
+            }
+        }
+
+        return null;
+    }
+
+    findConferenceByName(name: string): Conference | null {
+        for (let conference of this.conferences) {
+            if (conference.name === name) {
+                return conference;
+            }
+        }
+
+        return null;
+    }
+
+    onDivisionChange() {
+        console.log('Selected division is ', this.selectedDivision);
+
+        this.loadingData = true;
         this.tdsService
             .getConferences(this.selectedGender, this.selectedDivision)
-            .subscribe((data: any[]) => {
-                this.conferences = data;
-                this.overlay = false;
+            .subscribe((response) => {
+                this.conferences = response;
+                this.loadingData = false;
+
+                this.selectedConference = this.conferences[0].name;
             });
     }
 
-    onConferenceChange(): void {
-        this.overlay = true;
-    }
-
-    onSearch(event: any): void {
+    onSubmit(): void {
         this.chartData = [];
-        this.overlay = true;
+        this.loadingData = true;
         this.tdsService
             .getCommitments(
                 this.selectedGender,
@@ -82,7 +105,7 @@ export class CommitmentsComponent implements OnInit {
                         this.players.push(player);
                     }
                 }
-                this.overlay = false;
+                this.loadingData = false;
 
                 this.setOptions();
 
@@ -119,7 +142,9 @@ export class CommitmentsComponent implements OnInit {
 
                     this.chartData.push(item);
                 }
-            });
+            },
+            err => console.log('HTTP Error', err)
+            );
     }
 
     private setOptions() {

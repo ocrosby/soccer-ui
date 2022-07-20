@@ -5,44 +5,32 @@
     </app-spinner-overlay>
 </div>
 
-<mat-form-field appearance="fill">
-    <mat-label>Position</mat-label>
-    <mat-select [(ngModel)]="currentDivision" name="division" (selectionChange)="onDivisionChange($event)">
-        <mat-option value="di">DI</mat-option>
-        <mat-option value="dii">DII</mat-option>
-    </mat-select>
-    <mat-hint align="end"></mat-hint>
-</mat-form-field>
+<clr-radio-container clrInline>
+    <label>Division</label>
+    <clr-radio-wrapper>
+      <input type="radio" clrRadio name="division" required value="di" [(ngModel)]="currentDivision" (change)="onDivisionChange($event)" />
+      <label>DI</label>
+    </clr-radio-wrapper>
+    <clr-radio-wrapper>
+      <input type="radio" clrRadio name="division" required value="dii" [(ngModel)]="currentDivision" (change)="onDivisionChange($event)" />
+      <label>DII</label>
+    </clr-radio-wrapper>
+    <clr-control-helper><!--Pick a division--></clr-control-helper>
+    <clr-control-error>This field is required!</clr-control-error>
+  </clr-radio-container>
 
-<table mat-table matSort [dataSource]="rankings" class="mat-elevation-z8">
+<clr-datagrid>
+    <clr-dg-column>Rank</clr-dg-column>
+    <clr-dg-column>School</clr-dg-column>
+    <clr-dg-column>Previous</clr-dg-column>
+    <clr-dg-column>Record</clr-dg-column>
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
+    <clr-dg-row *ngFor="let element of rankings">
+        <clr-dg-cell>{{element.rank}}</clr-dg-cell>
+        <clr-dg-cell>{{element.school}}</clr-dg-cell>
+        <clr-dg-cell>{{element.previous}}</clr-dg-cell>
+        <clr-dg-cell>{{element.record}}</clr-dg-cell>
+    </clr-dg-row>
 
-    <!-- Rank Column -->
-    <ng-container matColumnDef="rank">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Rank </th>
-        <td mat-cell *matCellDef="let element"> {{element.rank}} </td>
-    </ng-container>
-
-    <!-- School Column -->
-    <ng-container matColumnDef="school">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> School </th>
-        <td mat-cell *matCellDef="let element"> {{element.school}} </td>
-    </ng-container>
-
-    <!-- Previous Column -->
-    <ng-container matColumnDef="previous">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Previous </th>
-        <td mat-cell *matCellDef="let element"> {{element.previous}} </td>
-    </ng-container>
-
-    <!-- Record Column -->
-    <ng-container matColumnDef="record">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Record </th>
-        <td mat-cell *matCellDef="let element"> {{element.record}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <clr-dg-footer>{{rankings.length}} schools</clr-dg-footer>
+</clr-datagrid>

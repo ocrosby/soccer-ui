@@ -1,33 +1,20 @@
-<h1>Girls Academy Clubs [ {{clubs.length}} ]</h1>
+<h1>Girls Academy Clubs</h1>
 
 <div *ngIf="overlay">
     <app-spinner-overlay [overlay]="overlay">
     </app-spinner-overlay>
 </div>
 
-<table mat-table matSort [dataSource]="clubs" class="mat-elevation-z8">
+<clr-datagrid>
+    <clr-dg-column>Name</clr-dg-column>
+    <clr-dg-column>State</clr-dg-column>
+    <clr-dg-column>Conference</clr-dg-column>
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
+    <clr-dg-row *ngFor="let element of clubs">
+        <clr-dg-cell>{{element.name}}</clr-dg-cell>
+        <clr-dg-cell>{{element.state}}</clr-dg-cell>
+        <clr-dg-cell>{{element.conference}}</clr-dg-cell>
+    </clr-dg-row>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let element"> <a href="{{element.url}}">{{element.name}}</a> </td>
-    </ng-container>
-
-    <!-- State Column -->
-    <ng-container *ngIf="!minimalTable" matColumnDef="state">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
-        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
-    </ng-container>
-
-    <!-- Conference Column -->
-    <ng-container *ngIf="!minimalTable" matColumnDef="conference">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Conference </th>
-        <td mat-cell *matCellDef="let element"> {{element.conference}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <clr-dg-footer>{{clubs.length}} clubs</clr-dg-footer>
+</clr-datagrid>

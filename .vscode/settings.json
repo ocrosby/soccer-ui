@@ -8,6 +8,8 @@
         "nwsl",
         "ocrosby",
         "popperjs",
-        "textfile"
+        "textfile",
+        "webcomponents",
+        "webcomponentsjs"
     ]
 }

@@ -5,77 +5,32 @@
     </app-spinner-overlay>
 </div>
 
-<table mat-table matSort [dataSource]="standings" class="mat-elevation-z8">
+<clr-datagrid>
+    <clr-dg-column>Rank</clr-dg-column>
+    <clr-dg-column>Team</clr-dg-column>
+    <clr-dg-column>Points</clr-dg-column>
+    <clr-dg-column>Overall W-L-T</clr-dg-column>
+    <clr-dg-column>Home W-L-T</clr-dg-column>
+    <clr-dg-column>Away W-L-T</clr-dg-column>
+    <clr-dg-column>GP</clr-dg-column>
+    <clr-dg-column>GD</clr-dg-column>
+    <clr-dg-column>GF</clr-dg-column>
+    <clr-dg-column>GA</clr-dg-column>
+    <clr-dg-column>Form</clr-dg-column>
 
-    <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
+    <clr-dg-row *ngFor="let element of standings">
+        <clr-dg-cell>{{element.rank}}</clr-dg-cell>
+        <clr-dg-cell>{{element.team}}</clr-dg-cell>
+        <clr-dg-cell>{{element.points}}</clr-dg-cell>
+        <clr-dg-cell>{{element.totalMatchesWon}}-{{element.totalMatchesLost}}-{{element.totalMatchesDrawn}}</clr-dg-cell>
+        <clr-dg-cell>{{element.homeMatchesWon}}-{{element.homeMatchesLost}}-{{element.homeMatchesDrawn}}</clr-dg-cell>
+        <clr-dg-cell>{{element.awayMatchesWon}}-{{element.awayMatchesLost}}-{{element.awayMatchesDrawn}}</clr-dg-cell>
+        <clr-dg-cell>{{element.totalMatchesPlayed}}</clr-dg-cell>
+        <clr-dg-cell>{{element.goalDifference}}</clr-dg-cell>
+        <clr-dg-cell>{{element.goalsFor}}</clr-dg-cell>
+        <clr-dg-cell>{{element.goalsAgainst}}</clr-dg-cell>
+        <clr-dg-cell>{{element.lastSix}}</clr-dg-cell>
+    </clr-dg-row>
 
-    <!-- Rank Column -->
-    <ng-container matColumnDef="rank">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Rank </th>
-        <td mat-cell *matCellDef="let element"> {{element.rank}} </td>
-    </ng-container>
-
-    <!-- Team Column -->
-    <ng-container matColumnDef="team">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Team </th>
-        <td mat-cell *matCellDef="let element"> <a href="{{element.team.website_url}}"> {{element.team.short_display}} </a> </td>
-    </ng-container>
-
-    <!-- Points Column -->
-    <ng-container matColumnDef="points">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Points </th>
-        <td mat-cell *matCellDef="let element"> {{element.points}} </td>
-    </ng-container>
-
-    <!-- Overall Column -->
-    <ng-container matColumnDef="overall">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Overall W-L-T</th>
-        <td mat-cell *matCellDef="let element">{{element.totalMatchesWon}}-{{element.totalMatchesLost}}-{{element.totalMatchesDrawn}} </td>
-    </ng-container>
-
-    <!-- Home Column -->
-    <ng-container matColumnDef="home">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Home W-L-T </th>
-        <td mat-cell *matCellDef="let element">{{element.homeMatchesWon}}-{{element.homeMatchesLost}}-{{element.homeMatchesDrawn}} </td>
-    </ng-container>
-
-    <!-- Away Column -->
-    <ng-container matColumnDef="away">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Away W-L-T</th>
-        <td mat-cell *matCellDef="let element">{{element.awayMatchesWon}}-{{element.awayMatchesLost}}-{{element.awayMatchesDrawn}} </td>
-    </ng-container>
-
-    <!-- Games Played Column -->
-    <ng-container matColumnDef="gamesplayed">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> GP </th>
-        <td mat-cell *matCellDef="let element"> {{element.totalMatchesPlayed}} </td>
-    </ng-container>
-
-    <!-- Goal Difference Column -->
-    <ng-container matColumnDef="difference">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> GD </th>
-        <td mat-cell *matCellDef="let element"> {{element.goalDifference}} </td>
-    </ng-container>
-
-    <!-- Goals For Column -->
-    <ng-container matColumnDef="for">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> GF </th>
-        <td mat-cell *matCellDef="let element"> {{element.goalsFor}} </td>
-    </ng-container>
-
-    <!-- Goals Agaisnt Column -->
-    <ng-container matColumnDef="against">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> GA </th>
-        <td mat-cell *matCellDef="let element"> {{element.goalsAgainst}} </td>
-    </ng-container>
-
-    <!-- Form Column -->
-    <ng-container matColumnDef="form">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Form </th>
-        <td mat-cell *matCellDef="let element"> {{element.lastSix}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <clr-dg-footer>{{standings.length}} teams</clr-dg-footer>
+</clr-datagrid>

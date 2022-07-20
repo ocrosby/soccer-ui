@@ -9,3 +9,25 @@ table {
 .demo-chart {
     height: 300px;
 }
+
+.ng-select.custom ::ng-deep .ng-select-container  {
+    min-height: 0px;
+    min-width: 275px;
+    border-radius: 0;
+}
+
+.flex-parent-element {
+    display: flex;
+    width: 50%;
+  }
+
+  .flex-child-element {
+    flex: 1;
+    // border: 2px solid #00364d;
+    margin: 10px;
+  }
+
+  .flex-child-element:first-child {
+    margin-left: 20px;
+    margin-right: 20px;
+  }

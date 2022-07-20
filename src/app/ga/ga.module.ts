@@ -8,10 +8,12 @@ import { MaterialModule } from '../material.module';
 import { CoreModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
 import { GaService } from '../core/ga.service';
+import { ClarityModule } from "@clr/angular";
 
 @NgModule({
     declarations: [GaComponent, ClubsComponent],
     imports: [
+        ClarityModule,
         MaterialModule,
         CommonModule,
         CoreModule,

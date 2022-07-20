@@ -9,13 +9,17 @@ import { MaterialModule } from '../material.module';
 import { CoreModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
 import { TdsService } from '../core/tds.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxEchartsModule } from 'ngx-echarts';
-
+import { ClarityModule } from "@clr/angular";
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
     declarations: [TdsComponent, CommitmentsComponent, PlayersComponent],
     imports: [
+        NgSelectModule,
         FormsModule,
+        ReactiveFormsModule,
+        ClarityModule,
         MaterialModule,
         CommonModule,
         CoreModule,

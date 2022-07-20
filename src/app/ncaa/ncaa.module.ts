@@ -10,11 +10,13 @@ import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { NcaaService } from '../core/ncaa.service';
 import { FormsModule } from '@angular/forms';
+import { ClarityModule } from "@clr/angular";
 
 @NgModule({
     declarations: [NcaaComponent, RpiRankingsComponent, UscRankingsComponent],
     imports: [
         FormsModule,
+        ClarityModule,
         MaterialModule,
         CommonModule,
         CoreModule,

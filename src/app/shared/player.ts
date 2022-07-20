@@ -9,6 +9,7 @@ export interface Player {
     highSchool: string;
     rating: string;
     year: number;
+    city: string;
     state: string;
     commitment: string;
     commitmentUrl: string;
