@@ -13,8 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { ClarityModule } from "@clr/angular";
 import { NgSelectModule } from '@ng-select/ng-select';
+import { CollegeConferencesComponent } from './college-conferences/college-conferences.component';
 @NgModule({
-    declarations: [TdsComponent, CommitmentsComponent, PlayersComponent],
+    declarations: [TdsComponent, CommitmentsComponent, PlayersComponent, CollegeConferencesComponent],
     imports: [
         NgSelectModule,
         FormsModule,

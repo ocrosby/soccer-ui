@@ -1,0 +1,16 @@
+<h1>College Conferences</h1>
+
+<div *ngIf="overlay">
+    <app-spinner-overlay [overlay]="overlay">
+    </app-spinner-overlay>
+</div>
+
+<clr-datagrid>
+    <clr-dg-column>Name</clr-dg-column>
+
+    <clr-dg-row *ngFor="let element of conferences">
+        <clr-dg-cell><a href="{{element.url}}" target="_blank">{{element.name}}</a></clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{conferences.length}} conferences</clr-dg-footer>
+</clr-datagrid>
