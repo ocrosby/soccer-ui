@@ -12,12 +12,12 @@
             </a>
         </div>
         <div class="header-nav">
-            <a routerLink="/home" class="active nav-link" aria-current="page"><span class="nav-text">Home</span></a>
-            <a routerLink="/ecnl" class="nav-link"><span class="nav-text">ECNL</span></a>
-            <a routerLink="/ga" class="nav-link"><span class="nav-text">GA</span></a>
-            <a routerLink="/ncaa" class="nav-link"><span class="nav-text">NCAA</span></a>
-            <a routerLink="/nwsl" class="nav-link"><span class="nav-text">NWSL</span></a>
-            <a routerLink="/tds" class="nav-link"><span class="nav-text">TopDrawer</span></a>
+            <a routerLink="/home" [ngClass]="isRouteActive('/home') ? 'active' : ''" class="nav-link" aria-current="page"><span class="nav-text">Home</span></a>
+            <a routerLink="/ecnl" [ngClass]="isRouteActive('/ecnl') ? 'active' : ''" class="nav-link"><span class="nav-text">ECNL</span></a>
+            <a routerLink="/ga" [ngClass]="isRouteActive('/ga') ? 'active' : ''" class="nav-link"><span class="nav-text">GA</span></a>
+            <a routerLink="/ncaa" [ngClass]="isRouteActive('/ncaa') ? 'active' : ''" class="nav-link"><span class="nav-text">NCAA</span></a>
+            <a routerLink="/nwsl" [ngClass]="isRouteActive('/nwsl') ? 'active' : ''" class="nav-link"><span class="nav-text">NWSL</span></a>
+            <a routerLink="/tds" [ngClass]="isRouteActive('/tds') ? 'active' : ''" class="nav-link"><span class="nav-text">TopDrawer</span></a>
         </div>
         <!--
         <div class="header-actions">
