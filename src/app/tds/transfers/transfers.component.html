@@ -11,11 +11,11 @@
     <clr-dg-column>NewSchool</clr-dg-column>
 
     <clr-dg-row *ngFor="let element of transfers">
-        <clr-dg-cell *ngIf="element.url !== null"><a href="{{element.url}}">{{element.name}}</a></clr-dg-cell>
+        <clr-dg-cell *ngIf="element.url !== null"><a href="{{element.url}}" target="_blank">{{element.name}}</a></clr-dg-cell>
         <clr-dg-cell *ngIf="element.url === null">{{element.name}}</clr-dg-cell>
-        <clr-dg-cell *ngIf="element.formerSchoolUrl !== null"><a href="{{element.formerSchoolUrl}}">{{element.formerSchoolName}}</a></clr-dg-cell>
+        <clr-dg-cell *ngIf="element.formerSchoolUrl !== null"><a href="{{element.formerSchoolUrl}}" target="_blank">{{element.formerSchoolName}}</a></clr-dg-cell>
         <clr-dg-cell *ngIf="element.formerSchoolUrl === null">{{element.formerSchoolName}}</clr-dg-cell>
-        <clr-dg-cell *ngIf="element.newSchoolUrl !== null"><a href="{{element.newSchoolUrl}}">{{element.newSchoolName}}</a></clr-dg-cell>
+        <clr-dg-cell *ngIf="element.newSchoolUrl !== null"><a href="{{element.newSchoolUrl}}" target="_blank">{{element.newSchoolName}}</a></clr-dg-cell>
         <clr-dg-cell *ngIf="element.newSchoolUrl === null">{{element.newSchoolName}}</clr-dg-cell>
     </clr-dg-row>
 
