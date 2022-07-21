@@ -73,8 +73,6 @@ export class CommitmentsComponent implements OnInit {
     }
 
     onDivisionChange() {
-        console.log('Selected division is ', this.selectedDivision);
-
         this.overlay = true;
         this.tdsService
             .getConferences(this.selectedGender, this.selectedDivision)
