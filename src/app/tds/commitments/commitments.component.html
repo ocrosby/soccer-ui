@@ -36,27 +36,17 @@
                 <clr-control-error>This field is required!</clr-control-error>
             </clr-radio-container>
 
-            <clr-control-container>
+            <clr-select-container>
                 <label>Conference</label>
-                <ng-select [items]="conferences"
-                    class="custom"
-                   name="conference"
-                   [multiple]="false"
-                   bindLabel="name"
-                   bindValue="name"
-                   [(ngModel)]="selectedConference">
-                </ng-select>
-                <!--
-                <ng-select clrControl [multiple]="true" name="cars" [(ngModel)]="selectedConference" required>
-                  <ng-option *ngFor="let conference of conferences" [value]="conference.name">{{conference.name}}</ng-option>
-                </ng-select>
-                -->
-                <clr-control-helper><!-- Helper text --></clr-control-helper>
-                <clr-control-error *clrIfError="'required'">This is a required field</clr-control-error>
-              </clr-control-container>
+                <select clrSelect name="conference" [(ngModel)]="selectedConference">
+                    <option *ngFor="let conference of conferences" value="{{conference.name}}">{{conference.name}}
+                    </option>
+                </select>
+                <clr-control-helper></clr-control-helper>
+                <clr-control-error>This field is required!</clr-control-error>
+            </clr-select-container>
 
-
-              <clr-radio-container clrInline>
+            <clr-radio-container clrInline>
                 <label>Year</label>
                 <clr-radio-wrapper>
                     <input type="radio" clrRadio name="year" required value="2022" [(ngModel)]="selectedYear" />
@@ -74,7 +64,9 @@
                     <input type="radio" clrRadio name="year" required value="2025" [(ngModel)]="selectedYear" />
                     <label>2025</label>
                 </clr-radio-wrapper>
-                <clr-control-helper><!--Pick a year--></clr-control-helper>
+                <clr-control-helper>
+                    <!--Pick a year-->
+                </clr-control-helper>
                 <clr-control-error>This field is required!</clr-control-error>
             </clr-radio-container>
 
