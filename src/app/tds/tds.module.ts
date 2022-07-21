@@ -6,7 +6,7 @@ import { TdsComponent } from './tds.component';
 import { CommitmentsComponent } from './commitments/commitments.component';
 import { PlayersComponent } from './players/players.component';
 import { MaterialModule } from '../material.module';
-import { CoreModule } from '@angular/flex-layout';
+import { CoreModule, FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
 import { TdsService } from '../core/tds.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,14 +14,17 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { ClarityModule } from "@clr/angular";
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CollegeConferencesComponent } from './college-conferences/college-conferences.component';
+import { TransfersComponent } from './transfers/transfers.component';
+
 @NgModule({
-    declarations: [TdsComponent, CommitmentsComponent, PlayersComponent, CollegeConferencesComponent],
+    declarations: [TdsComponent, CommitmentsComponent, PlayersComponent, CollegeConferencesComponent, TransfersComponent],
     imports: [
         NgSelectModule,
         FormsModule,
         ReactiveFormsModule,
         ClarityModule,
         MaterialModule,
+        FlexLayoutModule,
         CommonModule,
         CoreModule,
         SharedModule,

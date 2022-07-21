@@ -8,6 +8,7 @@ import { Organization } from '../shared/organization';
 import { School } from '../shared/school';
 
 import { environment } from './../../environments/environment';
+import { Transfer } from '../shared/tds';
 
 @Injectable({
     providedIn: 'root',
@@ -23,6 +24,12 @@ export class TdsService {
             .get<Organization[]>(
                 environment.apiUrl + '/tds/college/organizations'
             )
+            .pipe(catchError(this.handleError));
+    }
+
+    getTransfers(): Observable<any> {
+        return this.http
+            .get<Transfer[]>(environment.apiUrl + '/tds/college/transfers')
             .pipe(catchError(this.handleError));
     }
 

@@ -22,4 +22,8 @@ export class TdsComponent implements OnInit {
     onConferences() {
         this.router.navigate(['/tds/college/conferences']);
     }
+
+    onTransfers() {
+        this.router.navigate(['/tds/college/transfers']);
+    }
 }
