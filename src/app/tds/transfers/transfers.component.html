@@ -7,13 +7,13 @@
 
 <h2>Transfers Out by Frequency</h2>
 <ul>
-    <li *ngFor="let frequency of getFormerFrequencies()">{{frequency}} - {{this.getFormerSchoolsWithFrequency(frequency).join(', ')}}</li>
+    <li *ngFor="let frequency of getFormerFrequencies()">{{frequency}} {{frequency === 1 ? 'player' : 'players'}} - {{this.getFormerSchoolsWithFrequency(frequency).join(', ')}}</li>
 </ul>
 
 <br/>
 <h2>Transfers In By Frequency</h2>
 <ul>
-    <li *ngFor="let frequency of getNewFrequencies()">{{frequency}} - {{this.getNewSchoolsWithFrequency(frequency).join(', ')}}</li>
+    <li *ngFor="let frequency of getNewFrequencies()">{{frequency}} {{frequency === 1 ? 'player' : 'players'}} - {{this.getNewSchoolsWithFrequency(frequency).join(', ')}}</li>
 </ul>
 
 <clr-datagrid>
