@@ -8,7 +8,7 @@
 <clr-datagrid>
     <clr-dg-column>Player</clr-dg-column>
     <clr-dg-column>Former School</clr-dg-column>
-    <clr-dg-column>NewSchool</clr-dg-column>
+    <clr-dg-column>New School</clr-dg-column>
 
     <clr-dg-row *ngFor="let element of transfers">
         <clr-dg-cell *ngIf="element.url !== null"><a href="{{element.url}}" target="_blank">{{element.name}}</a></clr-dg-cell>
