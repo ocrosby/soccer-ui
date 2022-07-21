@@ -20,7 +20,7 @@
 
     <clr-dg-row *ngFor="let element of standings">
         <clr-dg-cell>{{element.rank}}</clr-dg-cell>
-        <clr-dg-cell>{{element.team}}</clr-dg-cell>
+        <clr-dg-cell>{{element.team.short_display}}</clr-dg-cell>
         <clr-dg-cell>{{element.points}}</clr-dg-cell>
         <clr-dg-cell>{{element.totalMatchesWon}}-{{element.totalMatchesLost}}-{{element.totalMatchesDrawn}}</clr-dg-cell>
         <clr-dg-cell>{{element.homeMatchesWon}}-{{element.homeMatchesLost}}-{{element.homeMatchesDrawn}}</clr-dg-cell>
