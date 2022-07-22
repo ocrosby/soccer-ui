@@ -10,11 +10,13 @@
 
 <strong>Player Data</strong>
 <clr-datagrid>
+    <clr-dg-column>No</clr-dg-column>
     <clr-dg-column>Player</clr-dg-column>
     <clr-dg-column>Former School</clr-dg-column>
     <clr-dg-column>New School</clr-dg-column>
 
-    <clr-dg-row *ngFor="let element of transfers">
+    <clr-dg-row *ngFor="let element of transfers; let i = index" [attr.data-index]="i">
+        <clr-dg-cell>{{i+1}}</clr-dg-cell>
         <clr-dg-cell *ngIf="element.url !== null"><a href="{{element.url}}" target="_blank">{{element.name}}</a></clr-dg-cell>
         <clr-dg-cell *ngIf="element.url === null">{{element.name}}</clr-dg-cell>
         <clr-dg-cell *ngIf="element.formerSchoolUrl !== null"><a href="{{element.formerSchoolUrl}}" target="_blank">{{element.formerSchoolName}}</a></clr-dg-cell>
