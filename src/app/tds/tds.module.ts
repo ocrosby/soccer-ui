@@ -15,9 +15,10 @@ import { ClarityModule } from "@clr/angular";
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CollegeConferencesComponent } from './college-conferences/college-conferences.component';
 import { TransfersComponent } from './transfers/transfers.component';
+import { TransferSummaryComponent } from './transfer-summary/transfer-summary.component';
 
 @NgModule({
-    declarations: [TdsComponent, CommitmentsComponent, PlayersComponent, CollegeConferencesComponent, TransfersComponent],
+    declarations: [TdsComponent, CommitmentsComponent, PlayersComponent, CollegeConferencesComponent, TransfersComponent, TransferSummaryComponent],
     imports: [
         NgSelectModule,
         FormsModule,

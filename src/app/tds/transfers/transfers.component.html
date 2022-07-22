@@ -5,17 +5,10 @@
     </app-spinner-overlay>
 </div>
 
-<h2>Transfers Out by Frequency</h2>
-<ul>
-    <li *ngFor="let frequency of getFormerFrequencies()">{{frequency}} {{frequency === 1 ? 'player' : 'players'}} - {{this.getFormerSchoolsWithFrequency(frequency).join(', ')}}</li>
-</ul>
+<app-transfer-summary [direction]="'in'" [transfers]="transfers"></app-transfer-summary>
+<app-transfer-summary [direction]="'out'" [transfers]="transfers"></app-transfer-summary>
 
-<br/>
-<h2>Transfers In By Frequency</h2>
-<ul>
-    <li *ngFor="let frequency of getNewFrequencies()">{{frequency}} {{frequency === 1 ? 'player' : 'players'}} - {{this.getNewSchoolsWithFrequency(frequency).join(', ')}}</li>
-</ul>
-
+<strong>Player Data</strong>
 <clr-datagrid>
     <clr-dg-column>Player</clr-dg-column>
     <clr-dg-column>Former School</clr-dg-column>

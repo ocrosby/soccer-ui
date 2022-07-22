@@ -1,0 +1,15 @@
+<h2>Transfers {{direction | titlecase}} by Frequency</h2>
+<table class="table table-compact table-noborder">
+    <thead>
+        <tr>
+            <th>Player Count</th>
+            <th class="left">Schools</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let frequency of frequencies">
+            <td>{{frequency}}  <!-- {{frequency === 1 ? 'player' : 'players'}} --></td>
+            <td class="left">{{getSchoolsByFrequency(frequency).join(", ")}}</td>
+        </tr>
+    </tbody>
+</table>
