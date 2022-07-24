@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { ConfigComponent } from './config/config.component';
@@ -32,7 +31,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
         ClarityModule,
         FlexLayoutModule,
         FormsModule,
-        MaterialModule,
         HttpClientModule,
         CoreModule,
         SharedModule,

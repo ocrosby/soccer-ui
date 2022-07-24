@@ -5,7 +5,6 @@ import { NcaaRoutingModule } from './ncaa-routing.module';
 import { NcaaComponent } from './ncaa.component';
 import { RpiRankingsComponent } from './rpi-rankings/rpi-rankings.component';
 import { UscRankingsComponent } from './usc-rankings/usc-rankings.component';
-import { MaterialModule } from '../material.module';
 import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { NcaaService } from '../core/ncaa.service';
@@ -17,7 +16,6 @@ import { ClarityModule } from "@clr/angular";
     imports: [
         FormsModule,
         ClarityModule,
-        MaterialModule,
         CommonModule,
         CoreModule,
         SharedModule,

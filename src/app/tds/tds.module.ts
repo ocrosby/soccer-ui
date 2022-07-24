@@ -5,7 +5,6 @@ import { TdsRoutingModule } from './tds-routing.module';
 import { TdsComponent } from './tds.component';
 import { CommitmentsComponent } from './commitments/commitments.component';
 import { PlayersComponent } from './players/players.component';
-import { MaterialModule } from '../material.module';
 import { CoreModule, FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
 import { TdsService } from '../core/tds.service';
@@ -25,7 +24,6 @@ import { CommitmentsPieChartComponent } from './commitments-pie-chart/commitment
         FormsModule,
         ReactiveFormsModule,
         ClarityModule,
-        MaterialModule,
         FlexLayoutModule,
         CommonModule,
         CoreModule,

@@ -5,7 +5,7 @@ import {
 } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from 'src/app/material.module';
+import { ClarityModule } from '@clr/angular';
 
 import { PlayersComponent } from './players.component';
 
@@ -18,7 +18,7 @@ describe('PlayersComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [
-                MaterialModule,
+                ClarityModule,
                 NoopAnimationsModule,
                 HttpClientTestingModule,
             ],

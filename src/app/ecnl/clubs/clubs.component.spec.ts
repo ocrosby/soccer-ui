@@ -3,8 +3,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ClarityModule } from '@clr/angular';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MaterialModule } from '../../material.module';
 
 import { ClubsComponent } from './clubs.component';
 
@@ -16,7 +16,7 @@ describe('ClubsComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [FormsModule, MaterialModule, SharedModule, NoopAnimationsModule, HttpClientTestingModule],
+            imports: [FormsModule, ClarityModule, SharedModule, NoopAnimationsModule, HttpClientTestingModule],
             declarations: [ClubsComponent],
         }).compileComponents();
 

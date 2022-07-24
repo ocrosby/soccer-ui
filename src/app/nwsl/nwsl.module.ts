@@ -8,7 +8,6 @@ import { StandingsComponent } from './standings/standings.component';
 import { NwslService } from '../core/nwsl.service';
 import { CoreModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
-import { MaterialModule } from '../material.module';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { ClarityModule } from "@clr/angular";
 import { FormsModule } from '@angular/forms';
@@ -18,7 +17,6 @@ import { FormsModule } from '@angular/forms';
     imports: [
         FormsModule,
         ClarityModule,
-        MaterialModule,
         CommonModule,
         CoreModule,
         SharedModule,

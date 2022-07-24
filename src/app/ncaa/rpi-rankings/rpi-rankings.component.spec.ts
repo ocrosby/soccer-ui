@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from 'src/app/material.module';
+import { ClarityModule } from '@clr/angular';
 
 import { RpiRankingsComponent } from './rpi-rankings.component';
 
@@ -14,7 +14,7 @@ describe('RpiRankingsComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [MaterialModule, NoopAnimationsModule, HttpClientTestingModule],
+            imports: [ClarityModule, NoopAnimationsModule, HttpClientTestingModule],
             declarations: [RpiRankingsComponent],
         }).compileComponents();
 
