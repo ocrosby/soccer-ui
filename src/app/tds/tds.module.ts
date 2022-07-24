@@ -16,9 +16,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { CollegeConferencesComponent } from './college-conferences/college-conferences.component';
 import { TransfersComponent } from './transfers/transfers.component';
 import { TransferSummaryComponent } from './transfer-summary/transfer-summary.component';
+import { CommitmentsPieChartComponent } from './commitments-pie-chart/commitments-pie-chart.component';
 
 @NgModule({
-    declarations: [TdsComponent, CommitmentsComponent, PlayersComponent, CollegeConferencesComponent, TransfersComponent, TransferSummaryComponent],
+    declarations: [TdsComponent, CommitmentsComponent, PlayersComponent, CollegeConferencesComponent, TransfersComponent, TransferSummaryComponent, CommitmentsPieChartComponent],
     imports: [
         NgSelectModule,
         FormsModule,

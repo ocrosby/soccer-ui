@@ -10,7 +10,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "docker:build": "docker build -t ocrosby/soccer-ui .",
-    "docker:run": "docker run -it --rm -p 8080:80 ocrosby/soccer-ui"
+    "docker:run": "docker run -it --rm -p 8080:8088 ocrosby/soccer-ui"
   },
   "private": true,
   "dependencies": {

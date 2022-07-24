@@ -1,5 +1,5 @@
-<h1>{{selectedYear}} College Commitments</h1>
-<h2>{{selectedConference}}</h2>
+<h1>{{currentYear}} College Commitments</h1>
+<h2>{{currentConference}}</h2>
 
 <div *ngIf="overlay">
     <app-spinner-overlay [overlay]="overlay">
@@ -74,7 +74,7 @@
         </form>
     </div>
     <div class="flex-child-element">
-        <div *ngIf="players.length > 0" echarts [options]="options" class="demo-chart"></div>
+        <app-commitments-pie-chart [schools]="schools"></app-commitments-pie-chart>
     </div>
 </div>
 
@@ -89,13 +89,17 @@
     <clr-dg-column>City</clr-dg-column>
     <clr-dg-column>State</clr-dg-column>
 
-
     <clr-dg-row *ngFor="let element of players">
         <clr-dg-cell>{{element.name}}</clr-dg-cell>
         <clr-dg-cell>{{element.commitment}}</clr-dg-cell>
         <clr-dg-cell>{{element.league}}</clr-dg-cell>
         <clr-dg-cell>{{element.position}}</clr-dg-cell>
-        <clr-dg-cell>{{element.club}}</clr-dg-cell>
+        <clr-dg-cell>
+            <strong *ngIf="element.league === 'Other'; else found">{{element.club}}</strong>
+            <ng-template #found>
+                {{element.club}}
+            </ng-template>
+        </clr-dg-cell>
         <clr-dg-cell>{{element.highSchool}}</clr-dg-cell>
         <clr-dg-cell>{{element.rating}}</clr-dg-cell>
         <clr-dg-cell>{{element.city}}</clr-dg-cell>

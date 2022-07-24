@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { LoggerService } from 'src/app/core/logger.service';
 import { TdsService } from 'src/app/core/tds.service';
 import { Conference } from 'src/app/shared/conference';
 import { Division } from 'src/app/shared/division';
@@ -19,6 +18,9 @@ export class CommitmentsComponent implements OnInit {
     selectedConference: string = '';
     selectedYear: string = '2023';
 
+    currentYear: string = '';
+    currentConference: string = '';
+
     divisions: Division[] = [];
     conferences: Conference[] = [];
     schools: School[] = [];
@@ -34,12 +36,12 @@ export class CommitmentsComponent implements OnInit {
         'commitment',
     ];
 
-    options: any;
-    chartData: any[] = [];
-
     subscriptions: Subscription[] = [];
 
-    constructor(private logger: LoggerService, private tdsService: TdsService) {}
+    constructor(private tdsService: TdsService) {
+        this.currentYear = this.selectedYear;
+        this.currentConference = this.selectedConference;
+    }
 
     ngOnInit(): void {
         this.overlay = true;
@@ -85,8 +87,11 @@ export class CommitmentsComponent implements OnInit {
     }
 
     onSubmit(): void {
+        this.schools = [];
+        this.players = [];
         this.overlay = true;
-        this.chartData = [];
+        this.currentYear = this.selectedYear;
+        this.currentConference = this.selectedConference;
         this.tdsService
             .getCommitments(
                 this.selectedGender,
@@ -106,64 +111,6 @@ export class CommitmentsComponent implements OnInit {
                     }
                 }
                 this.overlay = false;
-
-                this.setOptions();
-
-                let leagues = [];
-                for (let player of this.players) {
-                    let found = false;
-
-                    if (player.league === null) {
-                        continue;
-                    }
-
-                    for (let league of leagues) {
-                        if (league === player.league) {
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    if (!found) {
-                        leagues.push(player.league);
-                    }
-                }
-
-                leagues.sort();
-
-                for (let league of leagues) {
-                    let item = { name: league, value: 0 };
-
-                    for (let player of this.players) {
-                        if (player.league === league) {
-                            item['value'] += 1;
-                        }
-                    }
-
-                    this.chartData.push(item);
-                }
             });
-    }
-
-    private setOptions() {
-        this.options = {
-            tooltip: {
-                trigger: 'item',
-            },
-            series: [
-                {
-                    type: 'pie',
-                    radius: '60%',
-                    data: this.chartData,
-                    emphasis: {
-                        itemStyle: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)',
-                        },
-                    },
-                },
-            ],
-        };
     }
 }
