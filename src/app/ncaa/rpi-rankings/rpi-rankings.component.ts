@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
-import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { NcaaService } from 'src/app/core/ncaa.service';
 import { RPIRanking } from 'src/app/shared/ncaa';
 
@@ -11,8 +9,6 @@ import { RPIRanking } from 'src/app/shared/ncaa';
 })
 export class RpiRankingsComponent implements OnInit {
     rankings: RPIRanking[] = [];
-    color: ThemePalette = 'primary';
-    mode: ProgressSpinnerMode = 'indeterminate';
     value = 50;
     overlay = true;
 

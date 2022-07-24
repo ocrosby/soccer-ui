@@ -1,7 +1,5 @@
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
-import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { GAClub } from '../../shared/club';
 import { GaService } from '../../core/ga.service';
 
@@ -12,8 +10,6 @@ import { GaService } from '../../core/ga.service';
 })
 export class ClubsComponent implements OnInit {
     clubs: GAClub[] = [];
-    color: ThemePalette = 'primary';
-    mode: ProgressSpinnerMode = 'indeterminate';
     value = 50;
     overlay = true;
     minimalTable = false;
